@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,11 @@ TEMPLATES = [
         },
     },
 ]
+# import os
+# from django.core.asgi import get_asgi_application
 
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+# application = get_asgi_application()
 #WSGI_APPLICATION = 'core.wsgi.application'
 ASGI_APPLICATION = "core.asgi.application"
 CHANNEL_LAYERS = {
