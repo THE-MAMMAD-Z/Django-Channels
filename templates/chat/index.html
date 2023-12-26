@@ -1,26 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Rooms</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .chat-room-link {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 60%;
+        }
+
+        .chat-room-link:hover {
+            background-color: #2980b9;
+        }
+
+        #room-name-input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            width: 60%;
+        }
+
+        #room-name-submit {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #room-name-submit:hover {
+            background-color: #27ae60;
+        }
+    </style>
 </head>
 <body>
 
+    <div>
+        <label for="room-name-input">Enter chat room:</label><br>
+        <input id="room-name-input" type="text" size="100">
+        <br>
+        <button id="room-name-submit">Enter</button>
+    </div>
+
     {% for chat_room in chat_rooms %}
-    <a href='http://localhost:8000/chat/{{chat_room.roomname}}'>{{chat_room.roomname}}</a>
-    <br>
+    <a class="chat-room-link" href='http://localhost:8000/chat/{{chat_room.roomname}}'>{{chat_room.roomname}}</a>
     {% endfor %}
-
-
-
-    What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
 
     <script>
         document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.key === 'Enter') {  // enter, return
+            if (e.key === 'Enter') {
                 document.querySelector('#room-name-submit').click();
             }
         };
