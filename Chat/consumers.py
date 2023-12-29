@@ -134,7 +134,6 @@ class ChatConsumer(WebsocketConsumer):
 
     
     def chat_message(self, event):
-       
         self.send(text_data=json.dumps(event))
 
 # docker run --name my-redis-container -p 6379:6379 -d redis

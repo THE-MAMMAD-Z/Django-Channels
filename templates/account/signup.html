@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        body {
+            background-color: #ecf0f1; /* Changed background color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            width: 400px;
+            background-color: #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            color: #e74c3c;
+        }
+
+        .control-label {
+            color: #fff; /* Changed text color */
+        }
+
+        .input-xlarge {
+            width: 100%;
+        }
+
+        .btn-success {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+
+        .btn-success:hover,
+        .btn-success:focus,
+        .btn-success:active,
+        .btn-success.active,
+        .open .dropdown-toggle.btn-success {
+            background-color: #27ae60;
+            border-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <form class="form-horizontal" action="{% url 'account:signup' %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register</legend>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge form-control">
+                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                </div>
+            </div>
+        
+            <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password1" placeholder="" class="input-xlarge form-control">
+                    <p class="help-block">Password should be at least 4 characters</p>
+                </div>
+            </div>
+        
+            <div class="control-group">
+                <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                <div class="controls">
+                    <input type="password" id="password_confirm" name="password2" placeholder="" class="input-xlarge form-control">
+                    <p class="help-block">Please confirm password</p>
+                </div>
+            </div>
+        
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
